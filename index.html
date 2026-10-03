@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10151d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Новария">
+  <meta name="description" content="Симулятор жизни в вымышленной Республике Новария">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icon.svg">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <title>Новария — жизнь и экономика</title>
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <div class="overline">РЕСПУБЛИКА НОВАРИЯ</div>
+      <h1>Новая жизнь</h1>
+    </div>
+    <button id="install-button" class="install-button" hidden>Установить</button>
+  </header>
+
+  <main>
+    <section class="card profile">
+      <div class="profile-top">
+        <div>
+          <div class="muted">Житель Новарии</div>
+          <h2 id="player-name">Алексей Новарин</h2>
+        </div>
+        <div class="day-box">
+          <span class="muted">ДЕНЬ</span>
+          <strong id="day">1</strong>
+        </div>
+      </div>
+      <p class="location">Пристанский район · Комната в общежитии</p>
+      <div class="stats">
+        <div class="stat"><span>Деньги</span><strong id="money"></strong></div>
+        <div class="stat"><span>Чистый капитал</span><strong id="net-worth"></strong></div>
+        <div class="stat">
+          <div class="stat-line"><span>Здоровье</span><strong id="health-label"></strong></div>
+          <div class="meter"><i id="health-meter"></i></div>
+        </div>
+        <div class="stat">
+          <div class="stat-line"><span>Энергия</span><strong id="energy-label"></strong></div>
+          <div class="meter"><i id="energy-meter"></i></div>
+        </div>
+        <div class="stat">
+          <div class="stat-line"><span>Сытость</span><strong id="hunger-label"></strong></div>
+          <div class="meter"><i id="hunger-meter"></i></div>
+        </div>
+        <div class="stat"><span>Репутация</span><strong id="reputation"></strong></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <div><div class="overline">ТВОЙ ВЫБОР</div><h2>Действия</h2></div>
+        <span class="muted small">Время идёт вместе с решениями</span>
+      </div>
+      <div class="actions">
+        <button class="action" data-action="work">
+          <span class="emoji">🧰</span>
+          <span class="action-name">Подработать</span>
+          <span class="action-info">Заработать 28 ₵, потратить энергию</span>
+        </button>
+        <button class="action" data-action="food">
+          <span class="emoji">🥪</span>
+          <span class="action-name">Купить еду</span>
+          <span class="action-info">Заплатить 12 ₵, восстановить сытость</span>
+        </button>
+        <button class="action" data-action="rest">
+          <span class="emoji">🛏️</span>
+          <span class="action-name">Отдохнуть</span>
+          <span class="action-info">Восстановить энергию и здоровье</span>
+        </button>
+      </div>
+      <p id="notice" class="notice" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <div><div class="overline">ИСТОРИЯ ТВОИХ РЕШЕНИЙ</div><h2>Журнал</h2></div>
+        <button id="reset-button" class="reset-button">Новая игра</button>
+      </div>
+      <ol id="log" class="log"></ol>
+    </section>
+  </main>
+
+  <footer>
+    <span>Новария · версия 0.1</span>
+    <span id="connection">Проверяем соединение…</span>
+  </footer>
+
+  <script src="./game.js" defer></script>
+</body>
+</html>
